@@ -1,6 +1,7 @@
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Markup.Xaml;
+using Avalonia.Platform;
 
 namespace ModpackCreator.Views
 {
@@ -18,9 +19,17 @@ namespace ModpackCreator.Views
             set => this.FindControl<TextBlock>("message").Text = value;
         }
 
-        public ProgressBar()
+        public ProgressBar() {}
+
+        public ProgressBar(PixelPoint pos)
         {
             CanResize = false;
+            HasSystemDecorations = false;
+
+            
+
+            Position = pos.WithX(pos.X + 100).WithY(pos.Y + 50);
+
             InitializeComponent();
 #if DEBUG
             this.AttachDevTools();

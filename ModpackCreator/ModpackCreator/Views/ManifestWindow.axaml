@@ -1,0 +1,62 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="ModpackCreator.Views.ManifestWindow"
+		Icon="/Assets/icon.ico"
+        Title="ModpackCreator - Edit Manifest">
+  
+    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+		<TextBlock Padding="10" FontSize="35" FontWeight="200" HorizontalAlignment="Center">Edit Modpack Manifest</TextBlock>
+		<ScrollViewer Margin="0 0 0 0"
+					  Name="Mods"
+					  HorizontalScrollBarVisibility="Disabled"
+					  HorizontalContentAlignment="Center"
+					  VerticalContentAlignment="Top"
+					  HorizontalAlignment="Center"
+					  
+					  Width="600"
+					  Height="325"
+					  
+					  Background="WhiteSmoke"
+					  CornerRadius="10">
+			<StackPanel>
+				<StackPanel Margin="20" Background="#e0e0e0" >
+					<TextBlock Margin="10" FontSize="25" FontWeight="300" Text="Minecraft Settings"/>
+					<DockPanel Margin="10" Width="500" HorizontalAlignment="Center">
+						<Label DockPanel.Dock="Left" FontSize="20" FontWeight="300" HorizontalAlignment="Left" Content="Minecraft Version"/>
+						<TextBox Name="mc_minecraftVersion" DockPanel.Dock="Right" Height="30" Width="90" HorizontalAlignment="Right" FontSize="20" FontWeight="300"></TextBox>
+					</DockPanel>
+					<DockPanel Margin="10" Width="500" HorizontalAlignment="Center">
+						<Label DockPanel.Dock="Left" FontSize="20" FontWeight="300" HorizontalAlignment="Left" Content="Modloader"/>
+						<ComboBox Name="mc_modloader" DockPanel.Dock="Right" Height="30" Width="90" HorizontalAlignment="Right" FontSize="15" FontWeight="300" SelectedIndex="0">
+							<ComboBoxItem Content="Fabric"/>
+							<ComboBoxItem Content="Forge"/>
+						</ComboBox>
+					</DockPanel>
+					<DockPanel Margin="10" Width="500" HorizontalAlignment="Center">
+						<Label DockPanel.Dock="Left" FontSize="20" FontWeight="300" HorizontalAlignment="Left" Content="Modloader Version"/>
+						<TextBox Name="mc_modloaderVersion" DockPanel.Dock="Right" Height="30" Width="90" HorizontalAlignment="Right" FontSize="20" FontWeight="300"></TextBox>
+					</DockPanel>
+				</StackPanel>
+				<StackPanel Margin="20 0 20 20" Background="#e0e0e0" >
+					<TextBlock Margin="10" FontSize="25" FontWeight="300" Text="Modpack Settings"/>
+					<DockPanel Margin="10" Width="500" HorizontalAlignment="Center">
+						<Label DockPanel.Dock="Left" FontSize="20" FontWeight="300" HorizontalAlignment="Left" Content="Modpack Name"/>
+						<TextBox Name="mp_modpackName" DockPanel.Dock="Right" Height="30" Width="300" HorizontalAlignment="Right" FontSize="20" FontWeight="300"></TextBox>
+					</DockPanel>
+					<DockPanel Margin="10" Width="500" HorizontalAlignment="Center">
+						<Label DockPanel.Dock="Left" FontSize="20" FontWeight="300" HorizontalAlignment="Left" Content="Modpack Version"/>
+						<TextBox Name="mp_modpackVersion" DockPanel.Dock="Right" Height="30" Width="90" HorizontalAlignment="Right" FontSize="20" FontWeight="300"></TextBox>
+					</DockPanel>
+					<DockPanel Margin="10" Width="500" HorizontalAlignment="Center">
+						<Label DockPanel.Dock="Left" FontSize="20" FontWeight="300" HorizontalAlignment="Left" Content="Modpack Author"/>
+						<TextBox Name="mp_modpackAuthor" DockPanel.Dock="Right" Height="30" Width="300" HorizontalAlignment="Right" FontSize="20" FontWeight="300"></TextBox>
+					</DockPanel>
+				</StackPanel>
+			</StackPanel>
+		</ScrollViewer>
+		<Button Content="Save Manifest" Margin="10" HorizontalAlignment="Center" Click="SaveManifest"/>
+    </StackPanel>
+</Window>

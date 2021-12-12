@@ -1,0 +1,14 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="600" d:DesignHeight="155"
+        x:Class="ModpackCreator.Views.ProgressBar"
+		Icon="/Assets/icon.ico"
+        Title="ProgressBar">
+	<StackPanel Margin="20">
+		<TextBlock Text="Title" HorizontalAlignment="Center" FontSize="25" Name="title"/>
+		<ProgressBar IsIndeterminate="True" Height="20" Margin="20" Value="10"/>
+		<TextBlock Name="message" FontSize="20" HorizontalAlignment="Center" Text="Loading..."/>
+	</StackPanel>
+</Window>

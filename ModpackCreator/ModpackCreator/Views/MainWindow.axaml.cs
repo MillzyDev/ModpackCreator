@@ -101,7 +101,7 @@ namespace ModpackCreator.Views
     
         public async void AddMods(IEnumerable<string?> filenames)
         {
-            var progressBar = new ProgressBar
+            var progressBar = new ProgressBar(Position)
             {
                 Height = 155,
                 Width = 600,
@@ -203,7 +203,7 @@ namespace ModpackCreator.Views
                 return;
 
 
-            var progressBar = new ProgressBar
+            var progressBar = new ProgressBar(Position)
             {
                 Height = 155,
                 Width = 600,

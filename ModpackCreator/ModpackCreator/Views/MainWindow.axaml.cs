@@ -36,7 +36,7 @@ namespace ModpackCreator.Views
         {
             InitializeComponent();
 
-            
+            CanResize = false;
 #if DEBUG
             this.AttachDevTools();
 #endif
@@ -94,6 +94,8 @@ namespace ModpackCreator.Views
             };
 
             string[] filenames = await fileDialog.ShowAsync(this);
+            if (filenames == null || filenames == Array.Empty<string>()) 
+                return;
             AddMods(filenames);
         }
     
@@ -170,6 +172,8 @@ namespace ModpackCreator.Views
         {
             Manifest manifest = Manifest.Instance;
             manifest.files = Array.Empty<Mod>();
+
+            Directory.CreateDirectory(Path.Combine(Path.GetTempPath(), @"ModpackCreator", @"modpack"));
             
             if (AnyValuesNullOrEmpty(manifest))
             {
@@ -195,6 +199,9 @@ namespace ModpackCreator.Views
             saveDialog.DefaultExtension = "zip";
 
             string savePath = await saveDialog.ShowAsync(this);
+            if (savePath == null || savePath == String.Empty)
+                return;
+
 
             var progressBar = new ProgressBar
             {
@@ -233,7 +240,7 @@ namespace ModpackCreator.Views
             });
 
             progressBar.BarMessage = "Writing to manifest.json";
-            File.WriteAllText(Path.Combine(Path.GetTempPath(), @"ModpackCreator", @"manifest.json"), manifestJson);
+            File.WriteAllText(Path.Combine(Path.GetTempPath(), @"ModpackCreator", @"modpack", @"manifest.json"), manifestJson);
 
             progressBar.BarMessage = "Writing modlist.html";
 
@@ -251,16 +258,11 @@ namespace ModpackCreator.Views
                 fullList += $"<li><a href=\"{addon.Website}\">{addon.Name} (by {string.Join(", ", authors)})</a></li>";
             }
             fullHtml = $"<html><head></head><body><ul>{fullList}</ul></body></html>";
-            File.WriteAllText(Path.Combine(Path.GetTempPath(), @"ModpackCreator", @"modlist.html"), fullHtml);
-
-            progressBar.BarMessage = "Deleting mod JARs from temp dir";
-            string[] jars = Directory.GetFiles(Path.Combine(Path.GetTempPath(), @"ModpackCreator"));
-            foreach (string jar in jars)
-                if (jar.EndsWith(".jar")) File.Delete(jar);
+            File.WriteAllText(Path.Combine(Path.GetTempPath(), @"ModpackCreator", @"modpack", @"modlist.html"), fullHtml);
 
             progressBar.BarMessage = "Creating Zip Archive";
             try { File.Delete(savePath); } catch {}
-            ZipFile.CreateFromDirectory(Path.Combine(Path.GetTempPath(), @"ModpackCreator"), savePath);
+            ZipFile.CreateFromDirectory(Path.Combine(Path.GetTempPath(), @"ModpackCreator", @"modpack"), savePath);
             progressBar.BarMessage = "Done!";
             progressBar.Close();
         }
@@ -289,8 +291,8 @@ namespace ModpackCreator.Views
 
         public void OpenOverrides(object sender, RoutedEventArgs e)
         {
-            string overridesPath = Path.Combine(Path.GetTempPath(), @"ModpackCreator", @"overrides");
-            if (!Directory.Exists(overridesPath)) Directory.CreateDirectory(overridesPath);
+            string overridesPath = Path.Combine(Path.GetTempPath(), @"ModpackCreator", @"modpack", @"overrides");
+            Directory.CreateDirectory(overridesPath);
             Process.Start(new ProcessStartInfo
             {
                 FileName = overridesPath,

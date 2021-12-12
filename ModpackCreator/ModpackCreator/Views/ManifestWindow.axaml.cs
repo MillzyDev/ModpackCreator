@@ -13,6 +13,7 @@ namespace ModpackCreator.Views
         public ManifestWindow()
         {
             InitializeComponent();
+            CanResize = false;
 
             var minecraftVersion = this.FindControl<TextBox>("mc_minecraftVersion");
             var modloader = this.FindControl<ComboBox>("mc_modloader");

@@ -3,10 +3,25 @@
     <OutputType>WinExe</OutputType>
     <TargetFramework>net5.0</TargetFramework>
     <Nullable>enable</Nullable>
+    <ApplicationIcon>icon.ico</ApplicationIcon>
+    <Version>0.1.0</Version>
+    <Authors>Millzy</Authors>
+    <Description>A small application that creates modpacks in the CurseForge format.</Description>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <RepositoryType>Git</RepositoryType>
+    <RepositoryUrl>https://github.com/MillzyDev/ModpackCreator</RepositoryUrl>
+    <PackageReleaseNotes>Base prototype, does the job</PackageReleaseNotes>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>Pass.pfx</AssemblyOriginatorKeyFile>
+    <DelaySign>false</DelaySign>
   </PropertyGroup>
   <ItemGroup>
     <AvaloniaResource Include="Assets\**" />
     <None Remove=".gitignore" />
+    <None Include="..\..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
 	<ItemGroup>
 		<PackageReference Include="Avalonia" Version="0.10.10" />

@@ -20,6 +20,7 @@ namespace ModpackCreator.Views
 
         public ProgressBar()
         {
+            CanResize = false;
             InitializeComponent();
 #if DEBUG
             this.AttachDevTools();

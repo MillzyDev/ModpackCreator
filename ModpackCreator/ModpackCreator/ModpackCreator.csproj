@@ -6,7 +6,7 @@
     <ApplicationIcon>icon.ico</ApplicationIcon>
     <Version>0.1.1</Version>
     <Authors>Millzy</Authors>
-    <Description>A small application that creates modpacks in the CurseForge format.</Description>
+    <Description>A small application that creates Minecraft modpacks in the CurseForge format.</Description>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <RepositoryType>Git</RepositoryType>
     <RepositoryUrl>https://github.com/MillzyDev/ModpackCreator</RepositoryUrl>

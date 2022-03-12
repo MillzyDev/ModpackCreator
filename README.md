@@ -73,8 +73,8 @@ This is the easy part: Press `Export Modpack` at the bottom of the main window. 
 
 There are many ways to install modpacks. We will go over the 3 easiest options: **ModpackInstaller**, **MultiMC** and **CurseForge**
 
-### ModpackInstaller
-Modpack Installer is a project I am working on, it is not yet finished. This post will be updated once it is.
+### ModpackExtractor
+Use guide: https://github.com/MillzyDev/ModpackExtractor/blob/main/README.md
 
 ### MultiMC
 Download and Install MultiMC from [here](https://multimc.org/#Download).
